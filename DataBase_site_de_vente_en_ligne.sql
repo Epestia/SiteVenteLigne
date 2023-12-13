@@ -15,7 +15,7 @@ CREATE TABLE Produits (
     ID_produit INT PRIMARY KEY,
     Nom_produit VARCHAR(100),
     Description_produit TEXT,
-    Prix_produit DECIMAL(10, 2),
+    Prix_produit DECIMAL,
     Image_produit VARCHAR(255),
     Stock_produit INT
 );
@@ -33,7 +33,7 @@ CREATE TABLE Detail_Commande (
     ID_commande INT,
     ID_produit INT,
     Quantite_Commande INT,
-    Prix_unitaire_Commande DECIMAL(10, 2),
+    Prix_unitaire_Commande DECIMAL,
     FOREIGN KEY (ID_commande) REFERENCES Commandes(ID_commande),
     FOREIGN KEY (ID_produit) REFERENCES Produits(ID_produit)
 );
@@ -41,7 +41,7 @@ CREATE TABLE Detail_Commande (
 CREATE TABLE Paiements (
     ID_paiement INT PRIMARY KEY,
     ID_commande INT,
-    Montant_total_Paiement DECIMAL(10, 2),
+    Montant_total_Paiement DECIMAL,
     Type_paiement VARCHAR(50),
     FOREIGN KEY (ID_commande) REFERENCES Commandes(ID_commande)
 );
